@@ -39,19 +39,20 @@ public class Parser {
         return commands.getCommandWords();
     }
 
-    public double getDouble() {
+    public String getName() {
+        System.out.println("What's your name?");
         System.out.print("> ");
 
-        while (!reader.hasNextDouble()) {
-            System.out.println("Invalid input. Please enter a valid double value.");
+        while (!reader.hasNext()) {
+            System.out.println("Invalid input. Please enter a valid name.");
             System.out.print("> ");
             reader.next();
         }
 
-        double value = reader.nextDouble();
+        String name = reader.next();
         reader.nextLine();
 
-        return value;
+        return name;
     }
 
 }
