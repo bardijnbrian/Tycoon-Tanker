@@ -4,12 +4,12 @@ public class Gasstation {
 
     private LocalDate date = LocalDate.of(2000,1,1);
     private String name;
-    private Bank account;
+    private BankAccount account;
 
 
-    public Gasstation(String name){
+    public Gasstation(String name, Bank bank){
         setName(name);
-        account = new Bank();
+        account = new BankAccount(bank);
     }
 
     public void setName(String name){

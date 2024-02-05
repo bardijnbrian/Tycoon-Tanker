@@ -4,26 +4,17 @@ import java.util.Random;
 
 public class Bank {
 
-    private String cardNumber;
-    private double balance;
-    private boolean isBlocked;
+    private ArrayList<String> cardNumbers = new ArrayList<>();
+    private String name;
 
-
-    public Bank(){
-        setCardNumber();
-        balance = 0;
-        isBlocked = false;
+    public Bank(String name){
+        this.name = name;
     }
 
-    public void setBalance(int value){
-        balance += value;
+    public String getName(){
+        return name;
     }
-
-    public void setBlocked(boolean block){
-        isBlocked = block;
-    }
-
-    public void setCardNumber(){
+    public String setCardNumber(){
         Random r = new Random();
         StringBuilder number = new StringBuilder();
         for(int i = 0; i < 3; i++){
@@ -34,15 +25,13 @@ public class Bank {
                 number.append('-');
             }
         }
-        cardNumber = number.toString();
-    }
-
-    public String toString(){
-        String s =  "Card Information:\nCard Number: " + cardNumber + "\nBalance: " + balance;
-        if (isBlocked){
-            s += "\nBLOCKED";
+        if (!cardNumbers.contains(number.toString())){
+            cardNumbers.add(number.toString());
+            //niggaaaa
+            return number.toString();
+        } else {
+            return setCardNumber();
         }
-        return s;
-    }
 
+    }
 }

@@ -51,7 +51,7 @@ public class Loop {
 
     public void start(){
         String name = parser.getName();
-        gs = new Gasstation(name);
+        gs = new Gasstation(name, new Bank("KBC"));
         gs.printInfo();
         boolean finished = false;
         while(!finished){
